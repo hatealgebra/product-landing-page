@@ -1,17 +1,35 @@
+import { Flex, Box, IconButton, Spacer } from '@chakra-ui/react'
 import { Link } from '@tanstack/react-router'
 
 export default function Header() {
   return (
-    <header className="p-2 flex gap-2 bg-white text-black justify-between">
-      <nav className="flex flex-row">
-        <div className="px-2 font-bold">
-          <Link to="/">Home</Link>
-        </div>
+    <header>
+      <Flex
+        paddingX={'5%'}
+        py="2"
+        align="center"
+        justify="space-between"
+        borderColor={'gray.200'}
+        borderBottomWidth="1px"
+      >
+        {/* Logo */}
+        <Box>
+          <img src="/logo.png" alt="Logo" style={{ height: 40 }} />
+        </Box>
 
-        <div className="px-2 font-bold">
-          <Link to="/demo/tanstack-query">TanStack Query</Link>
-        </div>
-      </nav>
+        <Spacer />
+        <Flex as="nav" maxWidth="fit-content" gap={4} flex="1">
+          <Link to="/" className="hover:underline">
+            Home
+          </Link>
+          <Link to="/" className="hover:underline">
+            Features
+          </Link>
+          <Link to="/" className="hover:underline">
+            Contact
+          </Link>
+        </Flex>
+      </Flex>
     </header>
   )
 }
