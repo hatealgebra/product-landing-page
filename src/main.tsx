@@ -20,12 +20,15 @@ import './styles.css'
 import reportWebVitals from './reportWebVitals.ts'
 
 import App from './App.tsx'
+import { Provider } from './components/ui/provider.tsx'
 
 const rootRoute = createRootRoute({
   component: () => (
     <>
       <Header />
-      <Outlet />
+      <main>
+        <Outlet />
+      </main>
       <TanStackRouterDevtools />
 
       <TanStackQueryLayout />
@@ -67,7 +70,9 @@ if (rootElement && !rootElement.innerHTML) {
   root.render(
     <StrictMode>
       <TanStackQueryProvider.Provider>
-        <RouterProvider router={router} />
+        <Provider>
+          <RouterProvider router={router} />
+        </Provider>
       </TanStackQueryProvider.Provider>
     </StrictMode>,
   )
