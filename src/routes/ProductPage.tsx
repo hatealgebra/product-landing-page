@@ -1,16 +1,12 @@
-import React from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { useParams } from '@tanstack/react-router'
 import { MdError } from 'react-icons/md'
 import {
-  Badge,
   Box,
   Breadcrumb,
-  Button,
   Flex,
   Grid,
   Heading,
-  Image,
   Separator,
   Skeleton,
   Text,
@@ -18,8 +14,6 @@ import {
 import { LuHouse } from 'react-icons/lu'
 import type { IProduct } from '@/types/api/products'
 import ProductDetail from '@/components/products/ProductDetail'
-
-type Props = {}
 
 const fetchProductDetail = async (id: string) => {
   const res = await fetch(`https://api.escuelajs.co/api/v1/products/${id}`)
@@ -61,7 +55,7 @@ const ProductPageSkeleton = () => (
   </Flex>
 )
 
-const ProductPage = (props: Props) => {
+const ProductPage = () => {
   // For demonstration, let's assume the product ID comes from the URL query string
   // In a real app, you might use react-router's useParams or similar
   const searchParams = useParams({ from: '/products/$id' })
