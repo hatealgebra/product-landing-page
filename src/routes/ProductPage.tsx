@@ -103,7 +103,7 @@ const ProductPage = () => {
               Home
             </Breadcrumb.Link>
           </Breadcrumb.Item>
-          {!productId && !error && (
+          {productId && !error && (
             <>
               <Breadcrumb.Separator />
               <Breadcrumb.Item>
