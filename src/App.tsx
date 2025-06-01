@@ -67,6 +67,8 @@ function App() {
       <Group grow width="80%" maxWidth="350px" mx="auto">
         <Button
           as="a"
+          // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+          // @ts-ignore
           target="_blank"
           href="https://www.youtube.com/watch?v=D8wG67oko7E"
           variant="outline"

@@ -7,6 +7,7 @@ import {
   createRoute,
   createRouter,
 } from '@tanstack/react-router'
+
 import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
 
 import Header from './components/layout/Header.tsx'
@@ -72,7 +73,6 @@ async function enableMocking() {
   }
 
   const { worker } = await import('../src/mocks/browser.js')
-
   // `worker.start()` returns a Promise that resolves
   // once the Service Worker is up and ready to intercept requests.
   return worker.start()

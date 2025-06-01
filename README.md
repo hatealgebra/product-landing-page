@@ -94,3 +94,4 @@ Will be send separately
 - 📤 Finish gallery with the similar product from the category or top products + additional TansackQuery.
 - Dockerization and .env files would be added.
 - Switch Carousel for the single product photo in the product detail.
+- Add 404 design/UI
