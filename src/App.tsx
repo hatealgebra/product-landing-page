@@ -35,21 +35,39 @@ function App() {
   }
 
   return (
-    <Flex direction="column" gap="2">
-      <Box py="6" bg="gray.950" height={['40vh', '60vh', '70vh']}>
-        <Heading as="h1" size="4xl" textAlign="center" color="gray.100" my={4}>
+    <Flex direction="column">
+      <Box>
+        <Heading
+          as="h1"
+          size={['4xl', '5xl', '6xl']}
+          textAlign="center"
+          color="gray.100"
+          pt={12}
+          px={4}
+          pb={14}
+          bg="gray.950"
+        >
           The evolution begins
         </Heading>
       </Box>
-      <Bleed blockStart="55%" overflow={'hidden'}>
+      <Box pos="relative">
+        <Box
+          position="absolute"
+          bg="gray.950"
+          height="80%"
+          w="full"
+          zIndex="-10"
+        />
         <Image
           src={heroIphone}
-          width="full"
           objectPosition="center"
           objectFit="contain"
-          minHeight={['40vh', '60vh', '70vh']}
+          minHeight="10vh"
+          w="full"
+          mx="auto"
+          maxW="650px"
         />
-      </Bleed>
+      </Box>
       <Heading as="h1" size="4xl" my={4} textAlign="center">
         Sony XM5
       </Heading>
