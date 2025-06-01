@@ -2,6 +2,31 @@
 import { http, HttpResponse } from 'msw'
 
 export const handlers = [
+  http.get('https://api.escuelajs.co/api/v1/products/:productId', () => {
+    return HttpResponse.json({
+      id: 85,
+      title: 'Classic Grey Hooded Sweatshirt',
+      slug: 'classic-grey-hooded-sweatshirt',
+      price: 90,
+      description:
+        'Elevate your casual wear with our Classic Grey Hooded Sweatshirt. Made from a soft cotton blend, this hoodie features a front kangaroo pocket, an adjustable drawstring hood, and ribbed cuffs for a snug fit. Perfect for those chilly evenings or lazy weekends, it pairs effortlessly with your favorite jeans or joggers.',
+      category: {
+        id: 1,
+        name: 'Clothes',
+        slug: 'clothes',
+        image: 'https://i.imgur.com/QkIa5tT.jpeg',
+        creationAt: '2025-05-30T20:45:50.000Z',
+        updatedAt: '2025-05-30T20:45:50.000Z',
+      },
+      images: [
+        'https://i.imgur.com/R2PN9Wq.jpeg',
+        'https://i.imgur.com/IvxMPFr.jpeg',
+        'https://i.imgur.com/7eW9nXP.jpeg',
+      ],
+      creationAt: '2025-05-31T11:03:45.000Z',
+      updatedAt: '2025-05-31T11:03:45.000Z',
+    })
+  }),
   // Intercept "GET https://example.com/user" requests...
   http.get('https://api.escuelajs.co/api/v1/products', () => {
     // ...and respond to them using this JSON response.
