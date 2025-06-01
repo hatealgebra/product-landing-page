@@ -55,6 +55,7 @@ const ProductPage = () => {
   const searchParams = useParams({ from: '/products/$id' })
   const productId = searchParams.id
   // Not using useSuspenseQuery, because I'm using enabled in the query options, to save the request if the productId is not available
+  // TODO: Add useSuspenseQuery for the gallery with product from the same category. In the query fn i would check for the product id. If it is undefined, show the gallery with top prodfucst, if available, show procuts from the same category
   const { data, isLoading, error } = useQuery<IProduct>({
     ...productDetailQueryOptions(productId),
   })
