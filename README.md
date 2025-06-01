@@ -95,3 +95,5 @@ Will be send separately
 - Dockerization and .env files would be added.
 - Switch Carousel for the single product photo in the product detail.
 - Add 404 design/UI and footer
+- Optimize image usage with srcset and sizes attributes. Also use something image optimizer, when building the app.
+
