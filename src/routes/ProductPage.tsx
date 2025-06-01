@@ -14,12 +14,7 @@ import {
 import { LuHouse } from 'react-icons/lu'
 import type { IProduct } from '@/types/api/products'
 import ProductDetail from '@/components/products/ProductDetail'
-
-const fetchProductDetail = async (id: string) => {
-  const res = await fetch(`https://api.escuelajs.co/api/v1/products/${id}`)
-  if (!res.ok) throw new Error('Network response was not ok')
-  return res.json()
-}
+import { productDetailQueryOptions } from '@/queryOptions/products/productDetailQueryOptions'
 
 // FIX: Unite the styling with th product detail
 const ProductPageSkeleton = () => (
@@ -57,15 +52,11 @@ const ProductPageSkeleton = () => (
 )
 
 const ProductPage = () => {
-  // For demonstration, let's assume the product ID comes from the URL query string
-  // In a real app, you might use react-router's useParams or similar
   const searchParams = useParams({ from: '/products/$id' })
   const productId = searchParams.id
-
+  // Not using useSuspenseQuery, because I'm using enabled in the query options, to save the request if the productId is not available
   const { data, isLoading, error } = useQuery<IProduct>({
-    queryKey: ['product', productId],
-    queryFn: () => fetchProductDetail(productId),
-    enabled: !!productId,
+    ...productDetailQueryOptions(productId),
   })
 
   // FIX: Write either CHakra UI recipe or just make a component container with max width to reuse through the app

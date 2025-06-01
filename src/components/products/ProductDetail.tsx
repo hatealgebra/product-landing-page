@@ -82,3 +82,4 @@ export default ProductDetail
 
 // TODO: Switch single product photo for carousel component
 //TODO: Add gallery section and add two variants: One when the product has been loaded and show the related. If not loaded, show most searched products
+// ?: Use isPending boolean from the useQuery hook to show a loading state for example on the button, when fetching data and checking if there is a product available (quantity > 0)

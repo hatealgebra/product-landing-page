@@ -1,5 +1,4 @@
 import {
-  Bleed,
   Box,
   Button,
   Flex,
@@ -12,25 +11,19 @@ import { useQuery } from '@tanstack/react-query'
 
 import heroIphone from '@/assets/images/heroImage.webp'
 import ProductListing from './components/products/ProductListing'
+import { productsQueryOptions } from './queryOptions/products/productsQueryOptions'
 
 function App() {
-  const fetchProducts = async () => {
-    const res = await fetch('https://api.escuelajs.co/api/v1/products')
-    if (!res.ok)
-      throw new Error('Something went wrong. Please try again later.')
-    return res.json()
-  }
+  // Also thought about using a useSuspenseQuery hook and <Suspense> component, but i just wanted to save headache from writing more jsx and used isLoading props to just conditional render Skeleton
 
   const {
     data: productsData,
     isLoading,
     error,
-  } = useQuery({
-    queryKey: ['products'],
-    queryFn: fetchProducts,
-  })
+  } = useQuery(productsQueryOptions)
 
   if (error) {
+    // TODO:: Handle error more gracefully, show some decent UI
     return <div>Error loading products</div>
   }
 
