@@ -20,10 +20,12 @@ const ProductDetail = ({ productData }: ProductDetailProps) => {
 
   return (
     <Grid
+      w={{ base: 'full', md: '90%', lg: 'full' }}
       templateColumns={{
         base: '1fr',
         sm: '1.5fr 1fr',
-        md: '2fr 300px 1fr',
+        md: '2fr 300px 0',
+        lg: '2fr 300px 1fr',
       }}
       templateRows={{ md: '1fr repeat(4, auto) 1fr auto' }}
       templateAreas={{
@@ -33,6 +35,7 @@ const ProductDetail = ({ productData }: ProductDetailProps) => {
       gapX={{ sm: 4, md: 12 }}
       gapY={2}
       pr={{ sm: 4, md: 0 }}
+      mx="auto"
     >
       <Image
         src={productData.images?.[0] || ''}
