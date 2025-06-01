@@ -25,7 +25,7 @@ export default function Header() {
       <Spacer />
       <Flex as="nav" maxWidth="fit-content" gap={4} flex="1">
         <Link to="/" className="hover:underline">
-          New Drops
+          Home
         </Link>
         <Link to="/" className="hover:underline">
           Features
