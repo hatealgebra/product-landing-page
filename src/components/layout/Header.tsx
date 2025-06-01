@@ -17,13 +17,15 @@ export default function Header() {
       top={0}
     >
       <Box>
-        <img src="/logo.png" alt="Logo" style={{ height: 40 }} />
+        <Link to="/">
+          <img src="/logo.png" alt="Logo" style={{ height: 40 }} />
+        </Link>
       </Box>
 
       <Spacer />
       <Flex as="nav" maxWidth="fit-content" gap={4} flex="1">
         <Link to="/" className="hover:underline">
-          Home
+          New Drops
         </Link>
         <Link to="/" className="hover:underline">
           Features

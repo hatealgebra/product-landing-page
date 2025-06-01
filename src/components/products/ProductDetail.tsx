@@ -19,26 +19,46 @@ const ProductDetail = ({ productData }: ProductDetailProps) => {
   }
 
   return (
-    <Grid templateColumns={{ base: '1fr', md: '1fr 1fr' }} gap={2.5}>
+    <Grid
+      templateColumns={{
+        base: '1fr',
+        sm: '1.5fr 1fr',
+        md: '2fr 300px 1fr',
+      }}
+      templateRows={{ md: '1fr repeat(4, auto) 1fr auto' }}
+      templateAreas={{
+        sm: `"image title" "image categoryBadge" "image price" "image button" "image ." "description description"`,
+        md: `"image . ." "image title ." "image categoryBadge ." "image price ." "image button ." "image . ." "description description ."`,
+      }}
+      gapX={{ sm: 4, md: 12 }}
+      gapY={2}
+      pr={{ sm: 4, md: 0 }}
+    >
       <Image
         src={productData.images?.[0] || ''}
         alt={`${productData.id} image`}
+        gridArea={{ sm: 'image' }}
         width="100%"
         aspectRatio="1"
         objectFit="contain"
         mb="1"
       />
-      <Heading as="h1" size="2xl">
+      <Heading as="h1" size="2xl" gridArea={{ sm: 'title' }}>
         {productData.title}
       </Heading>
-      <Badge as="span" width="fit-content">
+      <Badge
+        as="span"
+        width="fit-content"
+        height="fit-content"
+        gridArea={{ sm: 'categoryBadge' }}
+      >
         {productData.category?.name}
       </Badge>
-      <Heading as="span" size="3xl" py="2">
+      <Heading as="span" size="3xl" py="2" gridArea={{ sm: 'price' }}>
         ${productData.price}.00
       </Heading>
-      <Button>Buy now</Button>
-      <Box>
+      <Button gridArea={{ sm: 'button' }}>Buy now</Button>
+      <Box gridArea={{ sm: 'description' }} maxW="700px">
         <Heading as="h2" size="lg" mt={4} textDecoration="underline">
           Description
         </Heading>
@@ -59,3 +79,6 @@ const ProductDetail = ({ productData }: ProductDetailProps) => {
 }
 
 export default ProductDetail
+
+// TODO: Switch single product photo for carousel component
+//TODO: Add gallery section and add two variants: One when the product has been loaded and show the related. If not loaded, show most searched products

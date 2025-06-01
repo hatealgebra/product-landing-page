@@ -27,7 +27,7 @@ const ProductListing = ({
   const data = isLoading ? mockArray : productsData
 
   return (
-    <Flex py={10} px={4} direction="column" gap={4}>
+    <Flex py={10} px={4} direction="column" gap={4} maxW="1200px" mx="auto">
       <Show when={heading}>
         <Heading as="h2" size="3xl" mb={5} textAlign="center">
           New products

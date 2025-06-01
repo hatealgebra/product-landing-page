@@ -21,6 +21,7 @@ const fetchProductDetail = async (id: string) => {
   return res.json()
 }
 
+// FIX: Unite the styling with th product detail
 const ProductPageSkeleton = () => (
   <Flex padding={4} direction="column" gap={4}>
     {/* Breadcrumb Skeleton */}
@@ -67,34 +68,17 @@ const ProductPage = () => {
     enabled: !!productId,
   })
 
-  if (!productId) {
+  // FIX: Write either CHakra UI recipe or just make a component container with max width to reuse through the app
+  if (isLoading) {
     return (
-      <Flex
-        direction="column"
-        align="center"
-        justify="center"
-        minH="300px"
-        gap={4}
-      >
-        <Box fontSize="5xl" color="gray.400">
-          <LuHouse />
-        </Box>
-        <Heading as="h2" size="lg" textAlign="center">
-          Unfortunately the product was not found or the detail could not be
-          shown.
-          <br />
-          Please go back or look at the products down below.
-        </Heading>
+      <Flex padding={4} direction="column" gap={4} maxW="1200px" mx="auto">
+        <ProductPageSkeleton />
       </Flex>
     )
   }
 
-  if (isLoading) {
-    return <ProductPageSkeleton />
-  }
-
   return (
-    <Flex padding={4} direction="column" gap={4}>
+    <Flex padding={4} direction="column" gap={4} maxW="1200px" mx="auto">
       <Breadcrumb.Root>
         <Breadcrumb.List>
           <Breadcrumb.Item>
@@ -120,7 +104,7 @@ const ProductPage = () => {
           )}
         </Breadcrumb.List>
       </Breadcrumb.Root>
-      {error && (
+      {(error || !productId) && (
         <Flex
           direction="column"
           align="center"
